@@ -1,3 +1,6 @@
+import copy
+
+
 #Fill the matrix with numbers from 1 to n*m
 n, m = map(int, input().split())
            
@@ -169,3 +172,45 @@ for row in matrix:
     print(*[str(x).ljust(3) for x in row])
 
 
+
+a = [[1, 2 ,3], 2, 3]
+b = copy.copy(a)
+c = copy.deepcopy(a)
+b[0][0] = 2
+print(a, b, c)
+
+
+#Euler-Venn diagram task
+#https://stepik.org/lesson/479457/step/14?unit=470432
+n, m, k, x, y ,z = int(input()), int(input()), int(input()), int(input()), int(input()), int(input())
+summa = n + m - x + k - y + z
+print(summa)
+
+
+
+
+#Fill in the code to find the number of students who read only one book, only two books, and no books at all, given the number of students who read each book and the number of students who read combinations of books.
+#https://stepik.org/lesson/479457/step/15?unit=470432
+n = int(input()) # first book only
+m = int(input()) # second book only
+k = int(input()) # third book only
+x = int(input()) # first and second book or both
+y = int(input()) # second and third book or both
+z = int(input()) # first and third book or both
+t = int(input()) # all three books
+a = int(input()) # total number of students
+
+ab = n + m - x
+bc = m + k - y
+ac = n + k - z
+
+pairs = ab + bc + ac
+
+at_least_one  = n + m + k - pairs + t
+
+only_one_book = n + m + k - 2 * pairs + 3 * t
+only_two_books = pairs - 3 * t
+zero_books = a - at_least_one
+print(only_one_book)
+print(only_two_books)
+print(zero_books)
