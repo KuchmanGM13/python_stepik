@@ -1,40 +1,38 @@
-# Python & AI Engineering Journey
+# Python Stepik — Learning Repository
 
-Self-study portfolio documenting my path from Python fundamentals to AI Engineer.
-Daily commits. Hands-on practice. Real projects.
+Solutions to Python exercises from Stepik courses ("Generation Python"), part of self-study preparation for an entry-level Data/AI Engineer role.
 
-## Current Focus
+## About
 
-Working through "Generation Python" Advanced Course on Stepik
-https://stepik.org/course/68343/syllabus
+- Course: ["Generation Python", advanced course](https://stepik.org/course/68343)
+- Prerequisite course: "Generation Python", beginner level — completed
+- Format: each solution is a separate file, organized by day/topic
+- No copy-pasted solutions — all code written by hand as part of the learning process
 
-- 800+ exercises completed (beginner + advanced track)
-- Topics: lists, matrices, 2D arrays, string manipulation, OOP basics
-- Daily practice with manual code writing, no copy-paste
+## Progress
+
+- ✅ Beginner course — completed
+- 🔄 Advanced course — in progress
+  - ✅ Lists, loops, functions
+  - ✅ Tuples and matrices
+  - 🔄 Sets and dictionaries — current topic
+  - ⬜ Remaining sections
+
+## Stack
+
+- Python 3.14 (environment managed via `uv`)
+- Virtual environment: `.venv` (`stepik-python`)
+- IDE: VS Code
 
 ## Roadmap
 
-Phase 1 - Python Foundations — Stack: Python, Stepik — Status: In progress
-Phase 2 - Data Validation — Stack: Pydantic, Pydantic AI — Status: Planned
-Phase 3 - Backend API — Stack: FastAPI — Status: Planned
-Phase 4 - Databases — Stack: PostgreSQL, pgvector, Redshift, BigQuery — Status: Planned
-Phase 5 - AI and LLM — Stack: LangChain, RAG Chatbot — Status: Planned
+After completing the Python course:
+1. Pydantic
+2. FastAPI
+3. PostgreSQL + pgvector
+4. LangChain + Pydantic AI
+5. RAG chatbot — portfolio project
 
-## Tech Stack
+## Contact
 
-Python, Pydantic, FastAPI, PostgreSQL, pgvector, LangChain, Redshift, BigQuery, Git
-
-## Repository Structure
-
-0.py - first exercises
-1.py - list manipulation, matrices
-2.py - Pydantic basics, BaseModel, Field, EmailStr
-
-## Learning Principles
-
-- Write all code by hand, never copy-paste
-- Explain concepts aloud before moving on
-- Commit every day
-- Build mini-projects alongside theory
-
-Stuttgart, Germany. Open to entry-level Data and AI Engineer roles.
+Open to feedback — this is a learning repository, code review and corrections are welcome.
