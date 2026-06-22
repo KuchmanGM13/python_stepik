@@ -11,12 +11,13 @@ Solutions to Python exercises from Stepik courses ("Generation Python"), part of
 
 ## Progress
 
-- ✅ Beginner course — completed
-- 🔄 Advanced course — in progress
-  - ✅ Lists, loops, functions
-  - ✅ Tuples and matrices
-  - 🔄 Sets and dictionaries — current topic
-  - ⬜ Remaining sections
+- Beginner course — completed
+- Advanced course — in progress
+- Lists, loops, functions
+- Tuples and matrices
+- Sets and dictionaries — current topic
+- Remaining sections
+- Decorators
 
 ## Stack
 
