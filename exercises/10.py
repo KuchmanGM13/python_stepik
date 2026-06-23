@@ -1,3 +1,5 @@
+from collections import Counter
+
 def add_query_string(url : str, query : dict):
     result = url
     if query:
@@ -93,3 +95,156 @@ homoglyphs = {
 
 text = 'XoʮeɯƄ зapaбaтыʙaтƄ oт 5K ʙ cyтkͷ? Haπͷɯͷ ʜaʍ ʙ ʮaтe.'
 print(replace_homoglyphs(text))
+
+
+#It traverses the list once (O(n)) and counts all occurrences at once—which is why it is ~2,300 times faster
+# def print_product_list(product_list: list):
+#     counts = Counter(product_list)
+#     lines = []
+#     for name, count in counts.items():
+#         label = emojis_product.get(name, name)
+#         lines.append(f'{label}: {count}')
+#     print(*lines, sep='\n')
+
+
+
+def print_product_list(product_list : list):
+    result = {}
+    for key in product_list:
+        if key in emojis_product:
+            result[emojis_product[key]] = product_list.count(key)
+        else:
+            result[key] = product_list.count(key)
+            
+    lines = []
+    for name, count in result.items():
+        lines.append(f'{name}: {count}')
+    return print(*lines, sep = '\n')
+    
+emojis_product = {
+    'яблоко': '🍎', 'хлеб': '🍞', 'конфеты': '🍬', 'лимон': '🍋',
+    'морковь': '🥕', 'огурец': '🥒', 'помидор': '🍅', 'яйцо': '🥚',
+    'чеснок': '🧄', 'авокадо': '🥑', 'спички': '🥢', 'соль': '🧂',
+    'филе говядины': '🥩', 'киви': '🥝', 'лук': '🧅', 'сыр': '🧀',
+}    
+
+
+product_list = [
+    'молоко', 'яйцо', 'колбаса', 'лук',
+    'помидор', 'помидор', 'майонез',
+    'хлеб', 'лук', 'сливочное масло',
+]
+print_product_list(product_list)   
+
+
+
+
+balances = {}
+
+
+def bank(operation: str, client: str, amount: int | None):
+    if client not in balances:
+        balances[client] = 0
+    
+    if operation == 'top up':
+        balances[client] += amount 
+    elif operation == 'withdraw':
+        balances[client] -= amount
+    elif operation == 'pay':
+        balances[client] -= amount
+    elif operation == 'show balance':
+        print(balances[client])
+                            
+
+arthur = 'id-1004'
+tony = 'id-78923'
+bank('top up', tony, 500)
+bank('show balance', arthur, None)
+bank('pay', tony, 120)
+bank('top up', arthur, 1000)
+bank('show balance', arthur, None)
+bank('withdraw', tony, 200)
+bank('show balance', tony, None)
+
+
+from collections import Counter
+
+def scrabble(letters: str, word: str):
+    letters_count = Counter(letters.lower())
+    words_count = Counter(word.lower())
+    for ch, count in words_count.items():
+        if letters_count[ch] < count:
+            return False
+    return True    
+
+
+
+print(scrabble('BEEGEEK', 'geekbee'))
+print(scrabble('tg', 'tgg'))
+print(scrabble('BEBEEGEEK', 'geekbee'))
+
+
+spending_list = {}
+
+def show_top_categories(spendings: list, num: int): 
+    counts = Counter()
+    for categrie, summa in spendings:
+        counts[categrie] += summa
+        
+    top = sorted(counts.items(), key=lambda x: x[1], reverse=True)[:num]
+    top_sorted = sorted(top, key=lambda x: x[0])
+    for categrie, summa in top_sorted:
+        print(categrie)
+        
+spendings = [
+    ('аптека', 1300), ('пекарня', 350),
+    ('проезд в автобусе', 43),
+    ('ресторан', 2300), ('кофейня', 300),
+    ('аптека', 2900), ('зоотовары', 750),
+    ('кофейня', 290), ('ресторан', 3540),
+    ('проезд в автобусе', 43),
+    ('такси', 540), ('кино', 880),
+]
+
+show_top_categories(spendings, 4)   
+
+
+def is_subfolder(folder_dict: dict, subfolder: str, folder: str) -> bool:
+    children = folder_dict.get(folder, [])
+    if subfolder in children:
+        return True
+    else:
+        for child in children:
+            if is_subfolder(folder_dict, subfolder, child):
+                return True
+    return False
+
+
+folder_system = {
+    'My': [
+        'Cartoons', 'Films', 'Series',
+    ],
+    'Cartoons': [
+        'Bolt (2008)', 'Ben 10 (2005)',
+        'Finding Nemo (2003)',
+    ],
+    'Films': [
+        'Joker (2019)', 'Wonka (2023)',
+        'Gone Girl (2014)',
+    ],
+    'Series': [
+        'Stranger Things (2016-2025)',
+        'Fallout (2024-)',
+        'Chernobyl (2019)',
+    ],
+}
+print(is_subfolder(
+    folder_system,
+    'Fallout (2024-)',
+    'My',
+))
+
+months = {1: 'January', 2: 'February', 3: 'March', 4: 'April', 5: 'May', 6: 'June', 7: 'July', 8: 'August', 9: 'September', 10: 'October', 11: 'November', 12: 'December'}
+
+result = {value: key for key, value in months.items()}
+print(result)
